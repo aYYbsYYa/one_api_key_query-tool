@@ -35,12 +35,12 @@
 
 ## 样例展示
 ### PC端
-![样例展示](example\image-1.jpg)
+![样例展示](example/image-1.jpg)
 ### 移动端
 （ps：手机端展示效果不佳，请用PC端查看【因为真不会写自适应 致歉！】）
-![样例展示](example\image-2.jpg)
+![样例展示](example/image-2.jpg)
 ### 监控页面
-![样例展示](example\image-3.jpg)
+![样例展示](example/image-3.jpg)
 
 ## 鸣谢
 感谢开源项目：https://github.com/louislam/uptime-kuma
@@ -51,4 +51,4 @@ Q group：798734094
 
 ## 动力支持
 如果觉得项目对您有帮助，欢迎请作者喝杯咖啡☕️
-![微信赞赏码](image\WeChat-Pay.png)
+![微信赞赏码](image/WeChat-Pay.png)
