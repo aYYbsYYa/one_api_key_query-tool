@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript" src="js/showContent.js"></script>
+    <script type="text/javascript" src="js/query_key.js"></script>
+    <script src="js/chart.js"></script>
+
+    <title>宿心aYYa API日志查询</title>
+
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+
+        <!-- 左侧logo -->
+        <div class="logo">
+            <img src="./image/logo.png" alt="Logo" style="width: auto; height: 50px; display: flex;">
+        </div>
+
+        <!-- 标签页设置 -->
+        <div class="tabs" id="component-2">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="showContent(0)" id="tab-1-button">查询</button>
+                <button class="tab-button" onclick="showContent(1)" id="tab-2-button">API 状态</button>
+                <button class="tab-button" onclick="showContent(2)" id="tab-3-button">示例页面</button>
+                <button class="tab-button" onclick="showContent(3)" id="tab-4-button">赞赏作者</button>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-button" onclick="toggleDropdown()">选择页面</button>
+                <div class="dropdown-content" id="dropdown-content">
+                    <button onclick="selectTab(0)">查询</button>
+                    <button onclick="selectTab(1)">API 状态</button>
+                    <button onclick="selectTab(2)">示例页面</button>
+                    <button onclick="selectTab(3)">赞赏作者</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 背景图片 -->
+    <div class="background-image"></div>
+
+    <!-- 背景模糊 -->
+    <div class="blur-container">
+        <!-- 内容容器 -->
+        <div class="container">
+
+            <h1 style="text-align: center;">宿心 aYYa API日志查询</h1>
+
+            <!-- 标签页内容 -->
+            <div class="content w-100 border-lr-2 border-b-2" id="component-3">
+
+                <div class="content-pane w-100 flex-wrap active" id="tab-1-page">
+
+                    <!-- 查询输入框 -->
+                    <div class="query-container">
+                        <input type="text" id="keyInput" placeholder="输入key">
+                        <button onclick="queryLog()">确认</button>
+                    </div>
+
+                    <!-- 显示key信息 -->
+                    <div class="info-container transparent-bg">
+
+                        <div class="chart-container">
+                            <canvas id="quotaChart"></canvas>
+                        </div>
+                        
+                        <!-- 显示token信息 -->
+                        <div id="tokenName"></div>
+                        <div id="expiredTime"></div>
+                        <div id="usedQuota"></div>
+                        <div id="remainQuota"></div>
+
+                    </div>
+
+                    <!-- 日志列表 -->
+                    <div class="logs-container">
+
+                        <ul id="logsList"></ul>
+
+                    </div>
+                </div>
+
+                <div class="content-pane w-100 flex-wrap" id="tab-2-page">
+                    <h2 >API 状态</h2>
+                    <iframe src="Your API status monitoring URL" class="custom-iframe"></iframe>
+                </div>
+
+                <div class="content-pane w-100 flex-wrap" id="tab-3-page">
+                    <h2>示例页面</h2>
+                </div>
+
+                <div class="content-pane w-100 flex-wrap" id="settings-page">
+                    <h2>赞赏作者</h2>
+                    
+                    <img src="./image/WeChat-Pay.png" alt="微信" style="width: auto; height: auto; display: block; margin: auto auto;">
+                    <p style="text-align: center;">微信扫一扫，向作者赞赏</p>
+
+                </div>
+
+            </div><!-- 标签页内容结束 -->
+
+        </div><!-- 内容容器结束 -->
+        
+    </div> <!-- 背景模糊结束 -->
+
+<!-- 版权信息 -->
+<!-- 请尊重原创，转载请注明出处，保留版权说明，谢谢！-->
+<footer style="text-align: center; margin-top: 50px;">
+    <p>repositories : <a href="https://github.com/aYYbsYYa/one_api_key_query-tool" target="_blank" style="color: violet;">one_api_key_query-tool</a></p>
+    <p>Copyright © by <a href="https://ayybsyya.top" target="_blank" style="color: violet;">aYYbsYYa</a> All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

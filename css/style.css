@@ -1,0 +1,332 @@
+/* 初始样式保持不变 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  justify-content: flex-start;
+}
+
+/* 背景图片设置 */
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/image/background.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* 毛玻璃设置 */
+.blur-container {
+  width: 85%;
+  height: 90%;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+/* 手持设备的适配样式 */
+@media (max-width: 767px) {
+  html, body {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .blur-container {
+    width: 95%;
+    height: auto;
+    padding: 10px;
+    box-shadow: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    width: 100%;
+    /*align-items: flex-start;*/
+  }
+
+  .navbar .logo {
+    font-size: 1em; /* 调小字体大小 */
+    display: flex;
+  }
+
+  .tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .tab-button {
+    width: 100%;
+    margin: 3px 0; /* 减少 margin */
+    padding: 5px; /* 减少 padding */
+    font-size: 0.9em; /* 调小字体大小 */
+  }
+
+  .content {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .content-pane {
+    padding: 10px;
+  }
+}
+
+/*内置标签页-导航栏*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab-button {
+  padding: 1em 2em;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.tab-button.active {
+  border-bottom: 2px solid #007bff;
+  font-weight: bold;
+  background-color: #ccc;
+}
+
+.content {
+  margin-top: 1em;
+}
+
+.content-pane {
+  display: none;
+}
+
+.content-pane.active {
+  display: block;
+}
+
+/*移动端折叠菜单*/
+.dropdown {
+  display: none;
+  width: 100%;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dropdown-content button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .tab-buttons {
+        display: none;
+    }
+
+    .dropdown {
+        display: block;
+    }
+}
+
+/* 针对不同浏览器的滚动条样式 */
+/* 针对Webkit浏览器（如Chrome、Safari）的滚动条样式 */
+::-webkit-scrollbar {
+  width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+  background: transparent; /* 将背景设置为透明 */
+  margin: 2px; /* 设置滚动条轨道与容器的距离 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.5); /* 透明度修改 */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.5); /* 透明度修改 */
+}
+
+/* 针对Mozilla Firefox的滚动条样式 */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(31, 134, 238, 0.5) transparent; /* 将轨道背景设置为透明 */
+}
+
+/* 针对IE和Edge的滚动条样式 */
+body {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; /* Firefox的标准 */
+  overflow: -moz-scrollbars-none;
+  scrollbar-color: rgba(181, 199, 217, 0.5) transparent; /* 将轨道背景设置为透明 */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+/*内嵌API状态页面的适配样式*/
+.custom-iframe {
+  width: 100%;
+  height: 600px;
+  border: none; /* 移除默认边框 */
+  overflow: auto; /* 允许滚动 */
+
+  border: 5px solid rgba(31, 134, 238, 0.5) transparent; /* 边框 */
+  border-radius: 15px; /* 边框圆角 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 盒子阴影 */
+}
+/* 针对WebKit浏览器的滚动条样式 */
+.custom-iframe::-webkit-scrollbar {
+  width: 12px;
+}
+
+.custom-iframe::-webkit-scrollbar-track {
+  background: transparent; /* 将背景设置为透明 */
+  margin: 2px; /* 设置滚动条轨道与容器的距离 */
+}
+
+.custom-iframe::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.5); /* 透明度修改 */
+  border-radius: 6px;
+}
+
+.custom-iframe::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.5); /* 透明度修改 */
+}
+
+/*查询界面*/
+.query-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  width: auto;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+}
+
+.query-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.query-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.query-container button:hover {
+  background-color: #0056b3;
+}
+
+.query-container .output {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 14px;
+  min-height: 100px;
+  overflow-y: auto;
+}
+
+.chart-container {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+}
+.info-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.logs-container {
+  margin-top: 20px;
+}
+.log-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.logs-container {
+  background-color: #ecf9ff;
+  border-radius: 15px;
+}
+
+.info-container {
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+.transparent-bg {
+  background-color: transparent;
+}
